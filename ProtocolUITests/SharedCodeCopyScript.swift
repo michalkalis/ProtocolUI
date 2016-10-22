@@ -5,10 +5,10 @@
 
 import Foundation
 
-let fileManager = NSFileManager.defaultManager()
-let rootPath = Process.arguments[1]
+let fileManager = FileManager.default
+let rootPath = Process().arguments?[1] ?? ""
 
-if let paths = fileManager.subpathsAtPath(rootPath) {
+if let paths = fileManager.subpaths(atPath: rootPath) {
     
     let sourcePath = rootPath + "/SharedTestCode.swift"
     
@@ -24,7 +24,7 @@ if let paths = fileManager.subpathsAtPath(rootPath) {
         
                 let fileContent = try String(contentsOfFile:fullPath)
                 
-                let components = fileContent.componentsSeparatedByString("//~~~**~~~")
+                let components = fileContent.components(separatedBy: "//~~~**~~~")
                 
                 if components.count == 3 {
                     
@@ -32,7 +32,7 @@ if let paths = fileManager.subpathsAtPath(rootPath) {
                     
                     do {
                         
-                        try newContent.writeToFile(fullPath, atomically: true, encoding: NSUTF8StringEncoding)
+                        try newContent.write(toFile: fullPath, atomically: true, encoding: String.Encoding.utf8)
                     }
                 }
             }

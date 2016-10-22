@@ -510,7 +510,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$PROJECT_DIR/$TARGET_NAME/SharedCodeCopyScript.swift $PROJECT_DIR/$TARGET_NAME";
+			shellScript = "\"$PROJECT_DIR/$TARGET_NAME/SharedCodeCopyScript.swift\" \"$PROJECT_DIR/$TARGET_NAME\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
