@@ -20,7 +20,7 @@ class BorderStyleProtocolTest: XCTestCase {
     
     typealias CurrentTestProtocol           = BorderStyle
     typealias CurrentTestValueType          = UITextBorderStyle
-    static let testValue : CurrentTestValueType    = UITextBorderStyle.None
+    static let testValue : CurrentTestValueType    = UITextBorderStyle.none
     
     func testUITextField() {
         
@@ -29,12 +29,12 @@ class BorderStyleProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.borderStyle, self.dynamicType.testValue)
+        XCTAssertEqual(test1.borderStyle, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.borderStyle, self.dynamicType.testValue)
+        XCTAssertEqual(test2.borderStyle, type(of: self).testValue)
     }
 }

@@ -28,11 +28,11 @@ class MaximumTrackTintColorProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.maximumTrackTintColor, self.dynamicType.testValue)
+        XCTAssertEqual(test1.maximumTrackTintColor, type(of: self).testValue)
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.maximumTrackTintColor, self.dynamicType.testValue)
+        XCTAssertEqual(test2.maximumTrackTintColor, type(of: self).testValue)
     }
 }

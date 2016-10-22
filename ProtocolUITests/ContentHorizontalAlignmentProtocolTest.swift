@@ -19,7 +19,7 @@ class ContentHorizontalAlignmentProtocolTest: XCTestCase {
     
     typealias CurrentTestProtocol           = ContentHorizontalAlignment
     typealias CurrentTestValueType          = UIControlContentHorizontalAlignment
-    static let testValue : CurrentTestValueType    = .Fill
+    static let testValue : CurrentTestValueType    = .fill
     
     func testUIControl() {
         
@@ -28,12 +28,12 @@ class ContentHorizontalAlignmentProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.contentHorizontalAlignment, self.dynamicType.testValue)
+        XCTAssertEqual(test1.contentHorizontalAlignment, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.contentHorizontalAlignment, self.dynamicType.testValue)
+        XCTAssertEqual(test2.contentHorizontalAlignment, type(of: self).testValue)
     }
 }

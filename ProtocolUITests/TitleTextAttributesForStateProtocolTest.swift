@@ -22,21 +22,21 @@ class TitleTextAttributesForStateProtocolTest: XCTestCase {
     
     static let attributes1 : [String : AnyObject] = [
     
-        NSFontAttributeName : UIFont.boldSystemFontOfSize(19),
-        NSForegroundColorAttributeName : UIColor.blueColor()
+        NSFontAttributeName : UIFont.boldSystemFont(ofSize: 19),
+        NSForegroundColorAttributeName : UIColor.blue
     ]
 
     static let attributes2 : [String : AnyObject] = [
         
-        NSFontAttributeName : UIFont.boldSystemFontOfSize(21),
-        NSForegroundColorAttributeName : UIColor.greenColor()
+        NSFontAttributeName : UIFont.boldSystemFont(ofSize: 21),
+        NSForegroundColorAttributeName : UIColor.green
     ]
 
     
     static let testValue : CurrentTestValueType    = [
         
-        (UIControlState.Normal, TitleTextAttributesForStateProtocolTest.attributes1),
-        (UIControlState.Highlighted, TitleTextAttributesForStateProtocolTest.attributes2)
+        (UIControlState(), TitleTextAttributesForStateProtocolTest.attributes1),
+        (UIControlState.highlighted, TitleTextAttributesForStateProtocolTest.attributes2)
     ]
     
     
@@ -47,28 +47,28 @@ class TitleTextAttributesForStateProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertNotNil(test1.titleTextAttributesForState(.Normal))
-        let attr1 = NSDictionary(dictionary: test1.titleTextAttributesForState(.Normal)!)
-        let attr2 = NSDictionary(dictionary: self.dynamicType.attributes1)
+        XCTAssertNotNil(test1.titleTextAttributes(for: UIControlState()))
+        let attr1 = NSDictionary(dictionary: test1.titleTextAttributes(for: UIControlState())!)
+        let attr2 = NSDictionary(dictionary: type(of: self).attributes1)
         XCTAssertEqual(attr1, attr2)
 
-        XCTAssertNotNil(test1.titleTextAttributesForState(.Highlighted))
-        let attr11 = NSDictionary(dictionary: test1.titleTextAttributesForState(.Highlighted)!)
-        let attr22 = NSDictionary(dictionary: self.dynamicType.attributes2)
+        XCTAssertNotNil(test1.titleTextAttributes(for: .highlighted))
+        let attr11 = NSDictionary(dictionary: test1.titleTextAttributes(for: .highlighted)!)
+        let attr22 = NSDictionary(dictionary: type(of: self).attributes2)
         XCTAssertEqual(attr11, attr22)
 
 
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertNotNil(test2.titleTextAttributesForState(.Normal))
-        let attr111 = NSDictionary(dictionary: test1.titleTextAttributesForState(.Normal)!)
-        let attr222 = NSDictionary(dictionary: self.dynamicType.attributes1)
+        XCTAssertNotNil(test2.titleTextAttributes(for: UIControlState()))
+        let attr111 = NSDictionary(dictionary: test1.titleTextAttributes(for: UIControlState())!)
+        let attr222 = NSDictionary(dictionary: type(of: self).attributes1)
         XCTAssertEqual(attr111, attr222)
         
-        XCTAssertNotNil(test2.titleTextAttributesForState(.Highlighted))
-        let attr1111 = NSDictionary(dictionary: test1.titleTextAttributesForState(.Highlighted)!)
-        let attr2222 = NSDictionary(dictionary: self.dynamicType.attributes2)
+        XCTAssertNotNil(test2.titleTextAttributes(for: .highlighted))
+        let attr1111 = NSDictionary(dictionary: test1.titleTextAttributes(for: .highlighted)!)
+        let attr2222 = NSDictionary(dictionary: type(of: self).attributes2)
         XCTAssertEqual(attr1111, attr2222)
     }
     
@@ -80,28 +80,28 @@ class TitleTextAttributesForStateProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertNotNil(test1.titleTextAttributesForState(.Normal))
-        let attr1 = NSDictionary(dictionary: test1.titleTextAttributesForState(.Normal)!)
-        let attr2 = NSDictionary(dictionary: self.dynamicType.attributes1)
+        XCTAssertNotNil(test1.titleTextAttributes(for: UIControlState()))
+        let attr1 = NSDictionary(dictionary: test1.titleTextAttributes(for: UIControlState())!)
+        let attr2 = NSDictionary(dictionary: type(of: self).attributes1)
         XCTAssertEqual(attr1, attr2)
         
-        XCTAssertNotNil(test1.titleTextAttributesForState(.Highlighted))
-        let attr11 = NSDictionary(dictionary: test1.titleTextAttributesForState(.Highlighted)!)
-        let attr22 = NSDictionary(dictionary: self.dynamicType.attributes2)
+        XCTAssertNotNil(test1.titleTextAttributes(for: .highlighted))
+        let attr11 = NSDictionary(dictionary: test1.titleTextAttributes(for: .highlighted)!)
+        let attr22 = NSDictionary(dictionary: type(of: self).attributes2)
         XCTAssertEqual(attr11, attr22)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertNotNil(test2.titleTextAttributesForState(.Normal))
-        let attr111 = NSDictionary(dictionary: test1.titleTextAttributesForState(.Normal)!)
-        let attr222 = NSDictionary(dictionary: self.dynamicType.attributes1)
+        XCTAssertNotNil(test2.titleTextAttributes(for: UIControlState()))
+        let attr111 = NSDictionary(dictionary: test1.titleTextAttributes(for: UIControlState())!)
+        let attr222 = NSDictionary(dictionary: type(of: self).attributes1)
         XCTAssertEqual(attr111, attr222)
         
-        XCTAssertNotNil(test2.titleTextAttributesForState(.Highlighted))
-        let attr1111 = NSDictionary(dictionary: test1.titleTextAttributesForState(.Highlighted)!)
-        let attr2222 = NSDictionary(dictionary: self.dynamicType.attributes2)
+        XCTAssertNotNil(test2.titleTextAttributes(for: .highlighted))
+        let attr1111 = NSDictionary(dictionary: test1.titleTextAttributes(for: .highlighted)!)
+        let attr2222 = NSDictionary(dictionary: type(of: self).attributes2)
         XCTAssertEqual(attr1111, attr2222)
     }
 

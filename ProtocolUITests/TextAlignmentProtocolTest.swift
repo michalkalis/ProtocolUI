@@ -19,10 +19,10 @@ class TextAlignmentProtocolTest: XCTestCase {
     
     typealias CurrentTestProtocol           = TextAlignment
     typealias CurrentTestValueType          = NSTextAlignment
-    static let testValue : CurrentTestValueType    = NSTextAlignment.Right
+    static let testValue : CurrentTestValueType    = NSTextAlignment.right
     
     
-    let textAligmnmentFromTextAttributes : [NSObject : AnyObject]? -> NSTextAlignment? = { attributes in
+    let textAligmnmentFromTextAttributes : ([AnyHashable: Any]?) -> NSTextAlignment? = { attributes in
         
         guard let attributes = attributes else {
             return nil
@@ -39,15 +39,15 @@ class TextAlignmentProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
 
-        XCTAssertEqual(textAligmnmentFromTextAttributes(test1.titleTextAttributesForState(.Normal))
-            , self.dynamicType.testValue)
+        XCTAssertEqual(textAligmnmentFromTextAttributes(test1.titleTextAttributes(for: UIControlState()))
+            , type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(textAligmnmentFromTextAttributes(test2.titleTextAttributesForState(.Normal))
-            , self.dynamicType.testValue)
+        XCTAssertEqual(textAligmnmentFromTextAttributes(test2.titleTextAttributes(for: UIControlState()))
+            , type(of: self).testValue)
     }
     
     
@@ -58,13 +58,13 @@ class TextAlignmentProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.titleLabel?.textAlignment, self.dynamicType.testValue)
+        XCTAssertEqual(test1.titleLabel?.textAlignment, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.titleLabel?.textAlignment, self.dynamicType.testValue)
+        XCTAssertEqual(test2.titleLabel?.textAlignment, type(of: self).testValue)
     }
     
     
@@ -75,13 +75,13 @@ class TextAlignmentProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.textAlignment, self.dynamicType.testValue)
+        XCTAssertEqual(test1.textAlignment, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.textAlignment, self.dynamicType.testValue)
+        XCTAssertEqual(test2.textAlignment, type(of: self).testValue)
     }
     
     
@@ -92,13 +92,13 @@ class TextAlignmentProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.textAlignment, self.dynamicType.testValue)
+        XCTAssertEqual(test1.textAlignment, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.textAlignment, self.dynamicType.testValue)
+        XCTAssertEqual(test2.textAlignment, type(of: self).testValue)
     }
     
     
@@ -110,13 +110,13 @@ class TextAlignmentProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.textAlignment, self.dynamicType.testValue)
+        XCTAssertEqual(test1.textAlignment, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.textAlignment, self.dynamicType.testValue)
+        XCTAssertEqual(test2.textAlignment, type(of: self).testValue)
     }
     
     
@@ -128,13 +128,13 @@ class TextAlignmentProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(textAligmnmentFromTextAttributes(test1.titleTextAttributes), self.dynamicType.testValue)
+        XCTAssertEqual(textAligmnmentFromTextAttributes(test1.titleTextAttributes), type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(textAligmnmentFromTextAttributes(test2.titleTextAttributes), self.dynamicType.testValue)
+        XCTAssertEqual(textAligmnmentFromTextAttributes(test2.titleTextAttributes), type(of: self).testValue)
     }
     
     
@@ -145,13 +145,13 @@ class TextAlignmentProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(textAligmnmentFromTextAttributes(test1.titleTextAttributesForState(.Normal)), self.dynamicType.testValue)
+        XCTAssertEqual(textAligmnmentFromTextAttributes(test1.titleTextAttributes(for: UIControlState())), type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(textAligmnmentFromTextAttributes(test2.titleTextAttributesForState(.Normal)), self.dynamicType.testValue)
+        XCTAssertEqual(textAligmnmentFromTextAttributes(test2.titleTextAttributes(for: UIControlState())), type(of: self).testValue)
     }
     
     
@@ -163,13 +163,13 @@ class TextAlignmentProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(textAligmnmentFromTextAttributes(test1.titleTextAttributesForState(.Normal)), self.dynamicType.testValue)
+        XCTAssertEqual(textAligmnmentFromTextAttributes(test1.titleTextAttributes(for: UIControlState())), type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(textAligmnmentFromTextAttributes(test2.titleTextAttributesForState(.Normal)), self.dynamicType.testValue)
+        XCTAssertEqual(textAligmnmentFromTextAttributes(test2.titleTextAttributes(for: UIControlState())), type(of: self).testValue)
     }
     
     
@@ -180,12 +180,12 @@ class TextAlignmentProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual((test1.valueForKey("searchField") as? UITextField)?.textAlignment, self.dynamicType.testValue)
+        XCTAssertEqual((test1.value(forKey: "searchField") as? UITextField)?.textAlignment, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual((test2.valueForKey("searchField") as? UITextField)?.textAlignment, self.dynamicType.testValue)
+        XCTAssertEqual((test2.value(forKey: "searchField") as? UITextField)?.textAlignment, type(of: self).testValue)
     }
 }

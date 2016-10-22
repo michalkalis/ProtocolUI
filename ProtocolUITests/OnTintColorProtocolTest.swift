@@ -28,11 +28,11 @@ class OnTintColorProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.onTintColor, self.dynamicType.testValue)
+        XCTAssertEqual(test1.onTintColor, type(of: self).testValue)
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.onTintColor, self.dynamicType.testValue)
+        XCTAssertEqual(test2.onTintColor, type(of: self).testValue)
     }
 }
