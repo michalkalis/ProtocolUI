@@ -22,12 +22,12 @@ class TransluentTRUEProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.translucent, self.dynamicType.testValue)
+        XCTAssertEqual(test1.isTranslucent, type(of: self).testValue)
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.translucent, self.dynamicType.testValue)
+        XCTAssertEqual(test2.isTranslucent, type(of: self).testValue)
     }
     
     
@@ -38,12 +38,12 @@ class TransluentTRUEProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.translucent, self.dynamicType.testValue)
+        XCTAssertEqual(test1.isTranslucent, type(of: self).testValue)
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.translucent, self.dynamicType.testValue)
+        XCTAssertEqual(test2.isTranslucent, type(of: self).testValue)
     }
     
     
@@ -54,11 +54,11 @@ class TransluentTRUEProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.translucent, self.dynamicType.testValue)
+        XCTAssertEqual(test1.isTranslucent, type(of: self).testValue)
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.translucent, self.dynamicType.testValue)
+        XCTAssertEqual(test2.isTranslucent, type(of: self).testValue)
     }
 }

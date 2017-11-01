@@ -28,11 +28,11 @@ class MinimumTrackTintColorProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.minimumTrackTintColor, self.dynamicType.testValue)
+        XCTAssertEqual(test1.minimumTrackTintColor, type(of: self).testValue)
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.minimumTrackTintColor, self.dynamicType.testValue)
+        XCTAssertEqual(test2.minimumTrackTintColor, type(of: self).testValue)
     }
 }

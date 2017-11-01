@@ -19,7 +19,7 @@ class TextColorProtocolTest: XCTestCase {
     
     typealias CurrentTestProtocol           = TextColor
     typealias CurrentTestValueType          = UIColor
-    static let testValue : CurrentTestValueType    = UIColor.yellowColor()
+    static let testValue : CurrentTestValueType    = UIColor.yellow
     
     func testUISegmentedControl() {
         
@@ -28,13 +28,13 @@ class TextColorProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.titleTextAttributesForState(.Normal)?[NSForegroundColorAttributeName] as? CurrentTestValueType, self.dynamicType.testValue)
+        XCTAssertEqual(test1.titleTextAttributes(for: UIControlState())?[NSForegroundColorAttributeName] as? CurrentTestValueType, type(of: self).testValue)
 
     
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.titleTextAttributesForState(.Normal)?[NSForegroundColorAttributeName] as? CurrentTestValueType, self.dynamicType.testValue)
+        XCTAssertEqual(test2.titleTextAttributes(for: UIControlState())?[NSForegroundColorAttributeName] as? CurrentTestValueType, type(of: self).testValue)
     }
 
 
@@ -45,13 +45,13 @@ class TextColorProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.titleColorForState(.Normal), self.dynamicType.testValue)
+        XCTAssertEqual(test1.titleColor(for: UIControlState()), type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.titleColorForState(.Normal), self.dynamicType.testValue)
+        XCTAssertEqual(test2.titleColor(for: UIControlState()), type(of: self).testValue)
     }
     
     
@@ -62,13 +62,13 @@ class TextColorProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.textColor, self.dynamicType.testValue)
+        XCTAssertEqual(test1.textColor, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.textColor, self.dynamicType.testValue)
+        XCTAssertEqual(test2.textColor, type(of: self).testValue)
     }
 
     
@@ -79,13 +79,13 @@ class TextColorProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.textColor, self.dynamicType.testValue)
+        XCTAssertEqual(test1.textColor, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.textColor, self.dynamicType.testValue)
+        XCTAssertEqual(test2.textColor, type(of: self).testValue)
     }
 
     
@@ -97,13 +97,13 @@ class TextColorProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.textColor, self.dynamicType.testValue)
+        XCTAssertEqual(test1.textColor, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.textColor, self.dynamicType.testValue)
+        XCTAssertEqual(test2.textColor, type(of: self).testValue)
     }
 
     
@@ -115,13 +115,13 @@ class TextColorProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.titleTextAttributes?[NSForegroundColorAttributeName] as? CurrentTestValueType, self.dynamicType.testValue)
+        XCTAssertEqual(test1.titleTextAttributes?[NSForegroundColorAttributeName] as? CurrentTestValueType, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.titleTextAttributes?[NSForegroundColorAttributeName] as? CurrentTestValueType, self.dynamicType.testValue)
+        XCTAssertEqual(test2.titleTextAttributes?[NSForegroundColorAttributeName] as? CurrentTestValueType, type(of: self).testValue)
     }
 
     
@@ -132,13 +132,13 @@ class TextColorProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
 
-        XCTAssertEqual(test1.titleTextAttributesForState(.Normal)?[NSForegroundColorAttributeName] as? CurrentTestValueType, self.dynamicType.testValue)
+        XCTAssertEqual(test1.titleTextAttributes(for: UIControlState())?[NSForegroundColorAttributeName] as? CurrentTestValueType, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.titleTextAttributesForState(.Normal)?[NSForegroundColorAttributeName] as? CurrentTestValueType, self.dynamicType.testValue)
+        XCTAssertEqual(test2.titleTextAttributes(for: UIControlState())?[NSForegroundColorAttributeName] as? CurrentTestValueType, type(of: self).testValue)
     }
     
     
@@ -150,13 +150,13 @@ class TextColorProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.titleTextAttributesForState(.Normal)?[NSForegroundColorAttributeName] as? CurrentTestValueType, self.dynamicType.testValue)
+        XCTAssertEqual(test1.titleTextAttributes(for: UIControlState())?[NSForegroundColorAttributeName] as? CurrentTestValueType, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.titleTextAttributesForState(.Normal)?[NSForegroundColorAttributeName] as? CurrentTestValueType, self.dynamicType.testValue)
+        XCTAssertEqual(test2.titleTextAttributes(for: UIControlState())?[NSForegroundColorAttributeName] as? CurrentTestValueType, type(of: self).testValue)
     }
 
 
@@ -167,12 +167,12 @@ class TextColorProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual((test1.valueForKey("searchField") as? UITextField)?.textColor, self.dynamicType.testValue)
+        XCTAssertEqual((test1.value(forKey: "searchField") as? UITextField)?.textColor, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual((test2.valueForKey("searchField") as? UITextField)?.textColor, self.dynamicType.testValue)
+        XCTAssertEqual((test2.value(forKey: "searchField") as? UITextField)?.textColor, type(of: self).testValue)
     }
 }

@@ -20,12 +20,12 @@ class ImageForStateProtocolTest: XCTestCase {
     typealias CurrentTestProtocol           = ImageForState
     typealias CurrentTestValueType          = [(UIControlState, UIImage)]
 
-    static let image1 = UIImage(named: "bob", inBundle: NSBundle(forClass: ImageForStateProtocolTest.self), compatibleWithTraitCollection: nil)!
-    static let image2 = UIImage(named: "kevin", inBundle: NSBundle(forClass: ImageForStateProtocolTest.self), compatibleWithTraitCollection: nil)!
+    static let image1 = UIImage(named: "bob", in: Bundle(for: ImageForStateProtocolTest.self), compatibleWith: nil)!
+    static let image2 = UIImage(named: "kevin", in: Bundle(for: ImageForStateProtocolTest.self), compatibleWith: nil)!
     
     static let testValue : CurrentTestValueType    = [
     
-        (UIControlState.Normal, ImageForStateProtocolTest.image1), (UIControlState.Highlighted, ImageForStateProtocolTest.image2)
+        (UIControlState(), ImageForStateProtocolTest.image1), (UIControlState.highlighted, ImageForStateProtocolTest.image2)
     ]
     
     
@@ -36,13 +36,13 @@ class ImageForStateProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.imageForState(.Normal), self.dynamicType.image1)
-        XCTAssertEqual(test1.imageForState(.Highlighted), self.dynamicType.image2)
+        XCTAssertEqual(test1.image(for: UIControlState()), type(of: self).image1)
+        XCTAssertEqual(test1.image(for: .highlighted), type(of: self).image2)
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.imageForState(.Normal), self.dynamicType.image1)
-        XCTAssertEqual(test2.imageForState(.Highlighted), self.dynamicType.image2)
+        XCTAssertEqual(test2.image(for: UIControlState()), type(of: self).image1)
+        XCTAssertEqual(test2.image(for: .highlighted), type(of: self).image2)
     }
 }

@@ -28,13 +28,13 @@ class FontProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.titleTextAttributesForState(.Normal)?[NSFontAttributeName] as? CurrentTestValueType, self.dynamicType.testValue)
+        XCTAssertEqual(test1.titleTextAttributes(for: UIControlState())?[NSFontAttributeName] as? CurrentTestValueType, type(of: self).testValue)
 
     
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.titleTextAttributesForState(.Normal)?[NSFontAttributeName] as? CurrentTestValueType, self.dynamicType.testValue)
+        XCTAssertEqual(test2.titleTextAttributes(for: UIControlState())?[NSFontAttributeName] as? CurrentTestValueType, type(of: self).testValue)
     }
 
 
@@ -45,13 +45,13 @@ class FontProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.titleLabel?.font, self.dynamicType.testValue)
+        XCTAssertEqual(test1.titleLabel?.font, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.titleLabel?.font, self.dynamicType.testValue)
+        XCTAssertEqual(test2.titleLabel?.font, type(of: self).testValue)
     }
     
     
@@ -62,13 +62,13 @@ class FontProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.font, self.dynamicType.testValue)
+        XCTAssertEqual(test1.font, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.font, self.dynamicType.testValue)
+        XCTAssertEqual(test2.font, type(of: self).testValue)
     }
 
     
@@ -79,13 +79,13 @@ class FontProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.font, self.dynamicType.testValue)
+        XCTAssertEqual(test1.font, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.font, self.dynamicType.testValue)
+        XCTAssertEqual(test2.font, type(of: self).testValue)
     }
 
     
@@ -97,13 +97,13 @@ class FontProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.font, self.dynamicType.testValue)
+        XCTAssertEqual(test1.font, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.font, self.dynamicType.testValue)
+        XCTAssertEqual(test2.font, type(of: self).testValue)
     }
 
     
@@ -115,13 +115,13 @@ class FontProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.titleTextAttributes?[NSFontAttributeName] as? CurrentTestValueType, self.dynamicType.testValue)
+        XCTAssertEqual(test1.titleTextAttributes?[NSFontAttributeName] as? CurrentTestValueType, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.titleTextAttributes?[NSFontAttributeName] as? CurrentTestValueType, self.dynamicType.testValue)
+        XCTAssertEqual(test2.titleTextAttributes?[NSFontAttributeName] as? CurrentTestValueType, type(of: self).testValue)
     }
 
     
@@ -132,13 +132,13 @@ class FontProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
 
-        XCTAssertEqual(test1.titleTextAttributesForState(.Normal)?[NSFontAttributeName] as? CurrentTestValueType, self.dynamicType.testValue)
+        XCTAssertEqual(test1.titleTextAttributes(for: UIControlState())?[NSFontAttributeName] as? CurrentTestValueType, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.titleTextAttributesForState(.Normal)?[NSFontAttributeName] as? CurrentTestValueType, self.dynamicType.testValue)
+        XCTAssertEqual(test2.titleTextAttributes(for: UIControlState())?[NSFontAttributeName] as? CurrentTestValueType, type(of: self).testValue)
     }
     
     
@@ -150,13 +150,13 @@ class FontProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.titleTextAttributesForState(.Normal)?[NSFontAttributeName] as? CurrentTestValueType, self.dynamicType.testValue)
+        XCTAssertEqual(test1.titleTextAttributes(for: UIControlState())?[NSFontAttributeName] as? CurrentTestValueType, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.titleTextAttributesForState(.Normal)?[NSFontAttributeName] as? CurrentTestValueType, self.dynamicType.testValue)
+        XCTAssertEqual(test2.titleTextAttributes(for: UIControlState())?[NSFontAttributeName] as? CurrentTestValueType, type(of: self).testValue)
     }
     
     
@@ -167,12 +167,12 @@ class FontProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual((test1.valueForKey("searchField") as? UITextField)?.font, self.dynamicType.testValue)
+        XCTAssertEqual((test1.value(forKey: "searchField") as? UITextField)?.font, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual((test2.valueForKey("searchField") as? UITextField)?.font, self.dynamicType.testValue)
+        XCTAssertEqual((test2.value(forKey: "searchField") as? UITextField)?.font, type(of: self).testValue)
     }
 }

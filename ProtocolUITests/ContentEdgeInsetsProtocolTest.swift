@@ -28,12 +28,12 @@ class ContentEdgeInsetsProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.contentEdgeInsets, self.dynamicType.testValue)
+        XCTAssertEqual(test1.contentEdgeInsets, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.contentEdgeInsets, self.dynamicType.testValue)
+        XCTAssertEqual(test2.contentEdgeInsets, type(of: self).testValue)
     }
 }

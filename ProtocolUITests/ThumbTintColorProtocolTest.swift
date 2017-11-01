@@ -28,12 +28,12 @@ class ThumbTintColorProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.thumbTintColor, self.dynamicType.testValue)
+        XCTAssertEqual(test1.thumbTintColor, type(of: self).testValue)
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.thumbTintColor, self.dynamicType.testValue)
+        XCTAssertEqual(test2.thumbTintColor, type(of: self).testValue)
     }
 
     
@@ -44,11 +44,11 @@ class ThumbTintColorProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.thumbTintColor, self.dynamicType.testValue)
+        XCTAssertEqual(test1.thumbTintColor, type(of: self).testValue)
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.thumbTintColor, self.dynamicType.testValue)
+        XCTAssertEqual(test2.thumbTintColor, type(of: self).testValue)
     }
 }

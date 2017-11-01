@@ -19,9 +19,9 @@ class ShadowColorProtocolTest: XCTestCase {
     
     typealias CurrentTestProtocol           = ShadowColor
     typealias CurrentTestValueType          = UIColor
-    static let testValue : CurrentTestValueType    = UIColor.greenColor()
+    static let testValue : CurrentTestValueType    = UIColor.green
     
-    func performTestWithClass(classType : UIView.Type, shouldTestIBDesignable: Bool = false) {
+    func performTestWithClass(_ classType : UIView.Type, shouldTestIBDesignable: Bool = false) {
         
         let testView = classType.init()
         
@@ -36,7 +36,7 @@ class ShadowColorProtocolTest: XCTestCase {
         
         XCTAssert(testView is CurrentTestProtocol)
         XCTAssertNotNil(testView.layer.shadowColor)
-        XCTAssert(UIColor(CGColor: testView.layer.shadowColor!).isEqual(self.dynamicType.testValue))
+        XCTAssert(UIColor(cgColor: testView.layer.shadowColor!).isEqual(type(of: self).testValue))
     }
     
     
@@ -58,91 +58,91 @@ class ShadowColorProtocolTest: XCTestCase {
 
     func testUIButton() {
         class TestView : UIButton, CurrentTestProtocol { }
-        performTestWithClass(TestView)
+        performTestWithClass(TestView.self)
         performTestWithClass(TestView.self, shouldTestIBDesignable: true)
     }
 
     func testUIControl() {
         class TestView : UIControl, CurrentTestProtocol { }
-        performTestWithClass(TestView)
+        performTestWithClass(TestView.self)
         performTestWithClass(TestView.self, shouldTestIBDesignable: true)
     }
 
     func testUILabel() {
         class TestView : UILabel, CurrentTestProtocol { }
-        performTestWithClass(TestView)
+        performTestWithClass(TestView.self)
         performTestWithClass(TestView.self, shouldTestIBDesignable: true)
     }
 
     func testUINavigationBar() {
         class TestView : UINavigationBar, CurrentTestProtocol { }
-        performTestWithClass(TestView)
+        performTestWithClass(TestView.self)
         performTestWithClass(TestView.self, shouldTestIBDesignable: true)
     }
 
     func testUIPageControl() {
         class TestView : UIPageControl, CurrentTestProtocol { }
-        performTestWithClass(TestView)
+        performTestWithClass(TestView.self)
         performTestWithClass(TestView.self, shouldTestIBDesignable: true)
     }
 
     func testUIProgressView() {
         class TestView : UIProgressView, CurrentTestProtocol { }
-        performTestWithClass(TestView)
+        performTestWithClass(TestView.self)
         performTestWithClass(TestView.self, shouldTestIBDesignable: true)
     }
 
     func testUISearchBar() {
         class TestView : UISearchBar, CurrentTestProtocol { }
-        performTestWithClass(TestView)
+        performTestWithClass(TestView.self)
         performTestWithClass(TestView.self, shouldTestIBDesignable: true)
     }
 
     func testUISegmentedControl() {
         class TestView : UISegmentedControl, CurrentTestProtocol { }
-        performTestWithClass(TestView)
+        performTestWithClass(TestView.self)
         performTestWithClass(TestView.self, shouldTestIBDesignable: true)
     }
 
     func testUISlider() {
         class TestView : UISlider, CurrentTestProtocol { }
-        performTestWithClass(TestView)
+        performTestWithClass(TestView.self)
         performTestWithClass(TestView.self, shouldTestIBDesignable: true)
     }
 
     func testUISwitch() {
         class TestView : UISwitch, CurrentTestProtocol { }
-        performTestWithClass(TestView)
+        performTestWithClass(TestView.self)
         performTestWithClass(TestView.self, shouldTestIBDesignable: true)
     }
 
     func testUITabBar() {
         class TestView : UITabBar, CurrentTestProtocol { }
-        performTestWithClass(TestView)
+        performTestWithClass(TestView.self)
         performTestWithClass(TestView.self, shouldTestIBDesignable: true)
     }
 
     func testUITextField() {
         class TestView : UITextField, CurrentTestProtocol { }
-        performTestWithClass(TestView)
+        performTestWithClass(TestView.self)
         performTestWithClass(TestView.self, shouldTestIBDesignable: true)
     }
 
     func testUITextView() {
         class TestView : UITextView, CurrentTestProtocol { }
-        performTestWithClass(TestView)
+        performTestWithClass(TestView.self)
         performTestWithClass(TestView.self, shouldTestIBDesignable: true)
     }
 
     func testUIToolbar() {
         class TestView : UIToolbar, CurrentTestProtocol { }
-        performTestWithClass(TestView)
+        performTestWithClass(TestView.self)
         performTestWithClass(TestView.self, shouldTestIBDesignable: true)
     }
 
     func testUIView() {
         class TestView : UIView, CurrentTestProtocol { }
-        performTestWithClass(TestView)
+        performTestWithClass(TestView.self)
         performTestWithClass(TestView.self, shouldTestIBDesignable: true)
     }
 

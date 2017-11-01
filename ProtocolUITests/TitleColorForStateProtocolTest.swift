@@ -25,7 +25,7 @@ class TitleColorForStateProtocolTest: XCTestCase {
     
     static let testValue : CurrentTestValueType    = [
     
-        (UIControlState.Normal, TitleColorForStateProtocolTest.color1), (UIControlState.Highlighted, TitleColorForStateProtocolTest.color2)
+        (UIControlState(), TitleColorForStateProtocolTest.color1), (UIControlState.highlighted, TitleColorForStateProtocolTest.color2)
     ]
     
     
@@ -36,13 +36,13 @@ class TitleColorForStateProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.titleColorForState(.Normal), self.dynamicType.color1)
-        XCTAssertEqual(test1.titleColorForState(.Highlighted), self.dynamicType.color2)
+        XCTAssertEqual(test1.titleColor(for: UIControlState()), type(of: self).color1)
+        XCTAssertEqual(test1.titleColor(for: .highlighted), type(of: self).color2)
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.titleColorForState(.Normal), self.dynamicType.color1)
-        XCTAssertEqual(test2.titleColorForState(.Highlighted), self.dynamicType.color2)
+        XCTAssertEqual(test2.titleColor(for: UIControlState()), type(of: self).color1)
+        XCTAssertEqual(test2.titleColor(for: .highlighted), type(of: self).color2)
     }
 }

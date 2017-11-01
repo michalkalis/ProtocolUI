@@ -25,7 +25,7 @@ class TitleShadowColorForStateProtocolTest: XCTestCase {
     
     static let testValue : CurrentTestValueType    = [
     
-        (UIControlState.Normal, TitleShadowColorForStateProtocolTest.color1), (UIControlState.Highlighted, TitleShadowColorForStateProtocolTest.color2)
+        (UIControlState(), TitleShadowColorForStateProtocolTest.color1), (UIControlState.highlighted, TitleShadowColorForStateProtocolTest.color2)
     ]
     
     
@@ -36,13 +36,13 @@ class TitleShadowColorForStateProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.titleShadowColorForState(.Normal), self.dynamicType.color1)
-        XCTAssertEqual(test1.titleShadowColorForState(.Highlighted), self.dynamicType.color2)
+        XCTAssertEqual(test1.titleShadowColor(for: UIControlState()), type(of: self).color1)
+        XCTAssertEqual(test1.titleShadowColor(for: .highlighted), type(of: self).color2)
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.titleShadowColorForState(.Normal), self.dynamicType.color1)
-        XCTAssertEqual(test2.titleShadowColorForState(.Highlighted), self.dynamicType.color2)
+        XCTAssertEqual(test2.titleShadowColor(for: UIControlState()), type(of: self).color1)
+        XCTAssertEqual(test2.titleShadowColor(for: .highlighted), type(of: self).color2)
     }
 }
