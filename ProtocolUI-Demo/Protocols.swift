@@ -16,14 +16,14 @@ struct Fonts {
 }
 
 struct Colors {
-    static let MainColor = UIColor.redColor()
+	static let MainColor = UIColor.red
 }
 
 
 // ======
 
 protocol GreenBackgroundColor : BackgroundColor  { }
-extension GreenBackgroundColor { var pBackgroundColor : UIColor { return UIColor.greenColor() } }
+extension GreenBackgroundColor { var pBackgroundColor : UIColor { return UIColor.green } }
 
 @IBDesignable class MyView : UIView, GreenBackgroundColor { }
 @IBDesignable class MyButton : UIButton, GreenBackgroundColor { }
@@ -33,13 +33,13 @@ extension GreenBackgroundColor { var pBackgroundColor : UIColor { return UIColor
 // ======
 
 protocol YellowBackgroundColor : BackgroundColor  { }
-extension YellowBackgroundColor { var pBackgroundColor : UIColor { return UIColor.yellowColor() } }
+extension YellowBackgroundColor { var pBackgroundColor : UIColor { return UIColor.yellow } }
 
 protocol BlueBackgroundColor : BackgroundColor  { }
-extension BlueBackgroundColor { var pBackgroundColor : UIColor { return UIColor.blueColor() } }
+extension BlueBackgroundColor { var pBackgroundColor : UIColor { return UIColor.blue } }
 
 protocol GrayBackground : BackgroundColor  { }
-extension GrayBackground { var pBackgroundColor : UIColor { return UIColor.lightGrayColor() } }
+extension GrayBackground { var pBackgroundColor : UIColor { return UIColor.lightGray } }
 
 protocol ButtonFont : Font { }
 extension ButtonFont { var pFont : UIFont { return Fonts.MainFont } }
@@ -48,7 +48,7 @@ protocol ButtonAppearance : YellowBackgroundColor, ButtonFont, CornerRadius, Mas
 extension ButtonAppearance { var pCornerRadius : CGFloat { return 10 } }
 
 protocol GreenBorder : BorderColor { }
-extension GreenBorder { var pBorderColor : UIColor { return UIColor.greenColor() } }
+extension GreenBorder { var pBorderColor : UIColor { return UIColor.green } }
 
 protocol DefaultBorderWidth : BorderWidth { }
 extension DefaultBorderWidth { var pBorderWidth : CGFloat { return 2.0 } }
@@ -56,7 +56,7 @@ extension DefaultBorderWidth { var pBorderWidth : CGFloat { return 2.0 } }
 protocol CallToActionAppearance : GreenBorder, DefaultBorderWidth { }
 
 protocol WhiteTextColor : TextColor { }
-extension WhiteTextColor { var pTextColor : UIColor { return UIColor.whiteColor() } }
+extension WhiteTextColor { var pTextColor : UIColor { return UIColor.white } }
 
 @IBDesignable class RegularButton : UIButton, ButtonAppearance { }
 @IBDesignable class CallToActionButton : UIButton, ButtonAppearance, CallToActionAppearance { }
@@ -69,7 +69,7 @@ extension WhiteTextColor { var pTextColor : UIColor { return UIColor.whiteColor(
 protocol SmartButtonApperance : TitleColorForState { }
 extension SmartButtonApperance {
     var pTitleColorForState : [(UIControlState, UIColor)] {
-        return [ (.Normal, UIColor.brownColor() ),(.Highlighted, UIColor.greenColor()) ]
+		return [ (.normal, UIColor.brown ),(.highlighted, UIColor.green) ]
     }
 }
 
@@ -85,7 +85,7 @@ extension RedTintColor { var pTintColor : UIColor { return Colors.MainColor } }
 
 
 protocol LeftAlignment : TextAlignment { }
-extension LeftAlignment { var pTextAlignment : NSTextAlignment { return NSTextAlignment.Right } }
+extension LeftAlignment { var pTextAlignment : NSTextAlignment { return NSTextAlignment.right } }
 
 @IBDesignable class RedSegmentedControl : UISegmentedControl, RedTintColor, ButtonFont { }
 @IBDesignable class WhiteBarButtonItem : UIBarButtonItem, WhiteTextColor { } // I can use either TintColor or TextColor for this
@@ -94,7 +94,7 @@ extension LeftAlignment { var pTextAlignment : NSTextAlignment { return NSTextAl
 // =====
 
 protocol YellowBarTintColor : BarTintColor { }
-extension YellowBarTintColor { var pBarTintColor : UIColor { return UIColor.yellowColor() } }
+extension YellowBarTintColor { var pBarTintColor : UIColor { return UIColor.yellow } }
 
 @IBDesignable class YellowNavigationBar : UINavigationBar, YellowBarTintColor, YellowBackgroundColor, ButtonFont { }
 @IBDesignable class YellowToolbar : UIToolbar, YellowBackgroundColor { } // I can use either BakckgorundColor or BarTintColor for this
@@ -104,9 +104,9 @@ extension YellowBarTintColor { var pBarTintColor : UIColor { return UIColor.yell
 
 protocol RegulagSliderAppearance : MaximumTrackTintColor, MinimumTrackTintColor, ThumbTintColor { }
 extension RegulagSliderAppearance {
-    var pMaximumTrackTintColor : UIColor { return UIColor.greenColor() }
-    var pMinimumTrackTintColor : UIColor { return UIColor.redColor() }
-    var pThumbTintColor : UIColor { return UIColor.grayColor() }
+	var pMaximumTrackTintColor : UIColor { return UIColor.green }
+	var pMinimumTrackTintColor : UIColor { return UIColor.red }
+	var pThumbTintColor : UIColor { return UIColor.gray }
 }
 
 @IBDesignable class MySlider : UISlider, RegulagSliderAppearance { }
@@ -117,7 +117,7 @@ extension RegulagSliderAppearance {
 protocol MyProgressViewAppearance : ProgressTintColor, TrackTintColor, RedTintColor { }
 extension MyProgressViewAppearance {
     var pProgressTintColor : UIColor { return pTintColor }
-    var pTrackTintColor : UIColor { return pTintColor.colorWithAlphaComponent(0.3) }
+	var pTrackTintColor : UIColor { return pTintColor.withAlphaComponent(0.3) }
 }
 
 @IBDesignable class MyProgressView : UIProgressView, MyProgressViewAppearance { }
@@ -127,7 +127,7 @@ extension MyProgressViewAppearance {
 
 protocol MySwitchAppearance : OnTintColor, ThumbTintColor { }
 extension MySwitchAppearance {
-    var pOnTintColor : UIColor { return UIColor.blueColor() }
+	var pOnTintColor : UIColor { return UIColor.blue }
     var pThumbTintColor : UIColor { return Colors.MainColor }
 }
 
@@ -139,7 +139,7 @@ extension MySwitchAppearance {
 
 protocol GreenCurrentPageTintColor : CurrentPageTintColor { }
 extension GreenCurrentPageTintColor {
-    var pCurrentPageTintColor : UIColor { return UIColor.greenColor() }
+	var pCurrentPageTintColor : UIColor { return UIColor.green }
 }
 
 @IBDesignable class MyPageControl : UIPageControl, RedTintColor, GreenCurrentPageTintColor { }

@@ -76,7 +76,7 @@ public protocol BackgroundImageForState    { var pBackgroundImageForState : [(UI
 
 
 // UIBarButtonItem + UISegmentedControl
-public protocol TitleTextAttributesForState    { var pTitleTextAttributesForState : [(UIControlState, [String: AnyObject])]    { get } }
+public protocol TitleTextAttributesForState    { var pTitleTextAttributesForState : [(UIControlState, [NSAttributedStringKey: Any])]    { get } }
 
 
 // UISlider
@@ -132,7 +132,7 @@ extension UIView: ProtocolUI {
         applyProtocolUIAppearance()
     }
     
-    public func applyProtocolUIAppearance() {
+    @objc public func applyProtocolUIAppearance() {
         
         // CALayer
         if let aSelf = self as? BorderWidth     { layer.borderWidth     = aSelf.pBorderWidth }
@@ -176,29 +176,34 @@ extension UIBarItem {
         applyProtocolUIAppearance()
     }
     
-    public func applyProtocolUIAppearance() {
+    @objc public func applyProtocolUIAppearance() {
         
         if let aSelf = self as? TextColor {
-            var attributes = titleTextAttributes(for: UIControlState()) ?? [String: AnyObject]()
-            attributes[NSForegroundColorAttributeName] = aSelf.pTextColor
+			
+			let existingAttributes = titleTextAttributes(for: UIControlState()) ?? [String: Any]()
+			var attributes: [NSAttributedStringKey: Any] = Dictionary(uniqueKeysWithValues: existingAttributes.map({ (NSAttributedStringKey(rawValue: $0.0), $0.1) }))
+            attributes[NSAttributedStringKey.foregroundColor] = aSelf.pTextColor
             setTitleTextAttributes(attributes, for: UIControlState())
         }
         
         if let aSelf = self as? Font {
-            var attributes = titleTextAttributes(for: UIControlState()) ?? [String: AnyObject]()
-            attributes[NSFontAttributeName] = aSelf.pFont
+			
+			let existingAttributes = titleTextAttributes(for: UIControlState()) ?? [String: Any]()
+            var attributes: [NSAttributedStringKey: Any] = Dictionary(uniqueKeysWithValues: existingAttributes.map({ (NSAttributedStringKey(rawValue: $0.0), $0.1) }))
+            attributes[NSAttributedStringKey.font] = aSelf.pFont
             setTitleTextAttributes(attributes, for: UIControlState())
         }
         
         if let aSelf = self as? TextAlignment {
-            
-            var attributes = titleTextAttributes(for: UIControlState()) ?? [String : AnyObject]()
-            let attribute = attributes[NSParagraphStyleAttributeName] as? NSParagraphStyle
+			
+			let existingAttributes = titleTextAttributes(for: UIControlState()) ?? [String: Any]()
+			var attributes: [NSAttributedStringKey: Any] = Dictionary(uniqueKeysWithValues: existingAttributes.map({ (NSAttributedStringKey(rawValue: $0.0), $0.1) }))
+            let attribute = attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle
             let paragraphStyle = attribute?.mutableCopy() as? NSMutableParagraphStyle
             
             paragraphStyle?.alignment = aSelf.pTextAlignment
             
-            attributes[NSParagraphStyleAttributeName] = paragraphStyle
+            attributes[NSAttributedStringKey.paragraphStyle] = paragraphStyle
 
             setTitleTextAttributes(attributes, for: UIControlState())
         }
@@ -243,19 +248,19 @@ extension UINavigationBar {
             print("#ProtocolUI: UINavigationBar has set both, the BackgroundColor and BarTintColor values. The BarTintColor value is used.")
         }
         
-        titleTextAttributes = titleTextAttributes ?? [String: AnyObject]()
+        titleTextAttributes = titleTextAttributes ?? [NSAttributedStringKey: Any]()
         
-        if let aSelf = self as? TextColor       { titleTextAttributes?[NSForegroundColorAttributeName]  = aSelf.pTextColor }
-        if let aSelf = self as? Font            { titleTextAttributes?[NSFontAttributeName]             = aSelf.pFont }
+        if let aSelf = self as? TextColor       { titleTextAttributes?[NSAttributedStringKey.foregroundColor]  = aSelf.pTextColor }
+        if let aSelf = self as? Font            { titleTextAttributes?[NSAttributedStringKey.font]             = aSelf.pFont }
 
         if let aSelf = self as? TextAlignment {
             
-            let attribute = titleTextAttributes?[NSParagraphStyleAttributeName] as? NSParagraphStyle
+            let attribute = titleTextAttributes?[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle
             let paragraphStyle = attribute?.mutableCopy() as? NSMutableParagraphStyle
             
             paragraphStyle?.alignment = aSelf.pTextAlignment
             
-            titleTextAttributes?[NSParagraphStyleAttributeName] = paragraphStyle
+            titleTextAttributes?[NSAttributedStringKey.paragraphStyle] = paragraphStyle
         }
         
         if self is TransluentTRUE               { isTranslucent = true }
@@ -455,18 +460,18 @@ extension UISegmentedControl {
         
         super.applyProtocolUIAppearance()
         
-        if let aSelf = self as? TextColor   { setTitleTextAttributes([NSForegroundColorAttributeName : aSelf.pTextColor], for: UIControlState()) }
-        if let aSelf = self as? Font        { setTitleTextAttributes([NSFontAttributeName : aSelf.pFont], for: UIControlState()) }
+        if let aSelf = self as? TextColor   { setTitleTextAttributes([NSAttributedStringKey.foregroundColor : aSelf.pTextColor], for: UIControlState()) }
+        if let aSelf = self as? Font        { setTitleTextAttributes([NSAttributedStringKey.font : aSelf.pFont], for: UIControlState()) }
         
         if let aSelf = self as? TextAlignment {
             
             var attributes = titleTextAttributes(for: UIControlState.normal) ?? [AnyHashable : Any]()
-            let attribute = attributes[NSParagraphStyleAttributeName] as? NSParagraphStyle
+            let attribute = attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle
             let paragraphStyle = attribute?.mutableCopy() as? NSMutableParagraphStyle
             
             paragraphStyle?.alignment = aSelf.pTextAlignment
             
-            attributes[NSParagraphStyleAttributeName] = paragraphStyle
+            attributes[NSAttributedStringKey.paragraphStyle] = paragraphStyle
             
             setTitleTextAttributes(attributes, for: UIControlState())
         }

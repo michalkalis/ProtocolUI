@@ -28,13 +28,13 @@ class FontProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.titleTextAttributes(for: UIControlState())?[NSFontAttributeName] as? CurrentTestValueType, type(of: self).testValue)
+        XCTAssertEqual(test1.titleTextAttributes(for: UIControlState())?[NSAttributedStringKey.font] as? CurrentTestValueType, type(of: self).testValue)
 
     
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.titleTextAttributes(for: UIControlState())?[NSFontAttributeName] as? CurrentTestValueType, type(of: self).testValue)
+        XCTAssertEqual(test2.titleTextAttributes(for: UIControlState())?[NSAttributedStringKey.font] as? CurrentTestValueType, type(of: self).testValue)
     }
 
 
@@ -115,13 +115,13 @@ class FontProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.titleTextAttributes?[NSFontAttributeName] as? CurrentTestValueType, type(of: self).testValue)
+        XCTAssertEqual(test1.titleTextAttributes?[NSAttributedStringKey.font] as? CurrentTestValueType, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.titleTextAttributes?[NSFontAttributeName] as? CurrentTestValueType, type(of: self).testValue)
+        XCTAssertEqual(test2.titleTextAttributes?[NSAttributedStringKey.font] as? CurrentTestValueType, type(of: self).testValue)
     }
 
     
@@ -132,13 +132,13 @@ class FontProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
 
-        XCTAssertEqual(test1.titleTextAttributes(for: UIControlState())?[NSFontAttributeName] as? CurrentTestValueType, type(of: self).testValue)
+        XCTAssertEqual(test1.titleTextAttributes(for: UIControlState())?[NSAttributedStringKey.font] as? CurrentTestValueType, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.titleTextAttributes(for: UIControlState())?[NSFontAttributeName] as? CurrentTestValueType, type(of: self).testValue)
+        XCTAssertEqual(test2.titleTextAttributes(for: UIControlState())?[NSAttributedStringKey.font] as? CurrentTestValueType, type(of: self).testValue)
     }
     
     
@@ -150,13 +150,13 @@ class FontProtocolTest: XCTestCase {
         let test1 = TestView()
         test1.applyProtocolUIAppearance()
         
-        XCTAssertEqual(test1.titleTextAttributes(for: UIControlState())?[NSFontAttributeName] as? CurrentTestValueType, type(of: self).testValue)
+        XCTAssertEqual(test1.titleTextAttributes(for: UIControlState())?[NSAttributedStringKey.font] as? CurrentTestValueType, type(of: self).testValue)
         
         
         let test2 = TestView()
         test2.prepareForInterfaceBuilder()
         
-        XCTAssertEqual(test2.titleTextAttributes(for: UIControlState())?[NSFontAttributeName] as? CurrentTestValueType, type(of: self).testValue)
+        XCTAssertEqual(test2.titleTextAttributes(for: UIControlState())?[NSAttributedStringKey.font] as? CurrentTestValueType, type(of: self).testValue)
     }
     
     

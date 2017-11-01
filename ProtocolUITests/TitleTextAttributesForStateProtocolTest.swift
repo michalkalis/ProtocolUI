@@ -22,14 +22,14 @@ class TitleTextAttributesForStateProtocolTest: XCTestCase {
     
     static let attributes1 : [String : AnyObject] = [
     
-        NSFontAttributeName : UIFont.boldSystemFont(ofSize: 19),
-        NSForegroundColorAttributeName : UIColor.blue
+        NSAttributedStringKey.font.rawValue : UIFont.boldSystemFont(ofSize: 19),
+        NSAttributedStringKey.foregroundColor.rawValue : UIColor.blue
     ]
 
     static let attributes2 : [String : AnyObject] = [
         
-        NSFontAttributeName : UIFont.boldSystemFont(ofSize: 21),
-        NSForegroundColorAttributeName : UIColor.green
+        NSAttributedStringKey.font.rawValue : UIFont.boldSystemFont(ofSize: 21),
+        NSAttributedStringKey.foregroundColor.rawValue : UIColor.green
     ]
 
     

@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'http://twitter.com/VojtaStavik'
   s.authors = { "Vojta Stavik" => "stavik@outlook.com" }
   s.source = { :git => 'https://github.com/VojtaStavik/ProtocolUI', :tag => s.version }
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.source_files   = 'ProtocolUI/*.swift'
   s.frameworks = 'UIKit'
   s.requires_arc = true

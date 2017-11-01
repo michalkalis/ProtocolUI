@@ -28,7 +28,7 @@ class TextAlignmentProtocolTest: XCTestCase {
             return nil
         }
     
-        return (attributes[NSParagraphStyleAttributeName] as? NSParagraphStyle)?.alignment
+        return (attributes[NSAttributedStringKey.paragraphStyle] as? NSParagraphStyle)?.alignment
     }
     
     
